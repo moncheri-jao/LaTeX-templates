@@ -16,7 +16,7 @@
 \usepackage{titlesec}
 \usepackage{microtype}
 \usepackage[style=alphabetic]{biblatex}
-\addbibresource{~/Dropbox/appunti/bibliografia/bib.bib}
+%\addbibresource{<++>}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=red,citecolor=blue]{hyperref}
 %
 \setlength{\headheight}{13.6pt}
@@ -29,16 +29,18 @@
 \titleformat{\section}[block]{}{\fontsize{14}{12}\textsf{\S\ \bfseries\thesection}}{0.5em}{\fontsize{14}{12}\bfseries\textsf}[\vspace{-1ex}\hfill\rule{\textwidth}{0.1pt}]
 \titleformat{\subsection}[block]{}{\textsf{\S\S\ \bfseries\thesubsection}}{0.5em}{\bfseries\textsf}
 % ENGLISH THEOREM STYLES %
-%\newtheorem{thm}{Theorem}
+%\newtheorem{thm}{Theorem}[chapter]
 %\theoremstyle{definition}
 %\newtheorem{pos}{Postulate}
-%\newtheorem{defn}{Definition}
-%\newtheorem{cor}{Corollary}
+%\newtheorem{prop}{Proposition}
+%\newtheorem{lem}{Lemma}[section]
+%\newtheorem{dfn}{Definition}[section]
+%\newtheorem{cor}{Corollary}[section]
 %\newtheorem{hyp}{Hypothesis}
-%\newtheorem{exe}{Exercise}
+%\newtheorem{exe}{Exercise}[section]
 %\theoremstyle{remark}
-%\newtheorem{eg}{Example}
-%\newtheorem{rmk}{Remark}
+%\newtheorem{eg}{Example}[section]
+%\newtheorem*{rmk}{Remark}
 % %
 %% ITALIAN THEOREM STYLES %%
 %\newtheorem{thm}{Teorema}
