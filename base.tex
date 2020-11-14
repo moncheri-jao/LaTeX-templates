@@ -4,8 +4,7 @@
 \usepackage{subfiles}
 \usepackage[]{csquotes}
 \usepackage{fontspec}
-\usepackage{mathtools}
-\usepackage{amsthm, amsmath, amssymb, amsfonts}
+\usepackage{amsthm, mathtools, amssymb, amsfonts}
 \usepackage{esint}
 \usepackage{xcolor}
 \usepackage[]{geometry}
@@ -19,9 +18,20 @@
 \usepackage{stmaryrd}
 \usepackage{dsfont}
 \usepackage{lipsum}
+\usepackage{etoolbox}
 \usepackage[style=alphabetic]{biblatex}
 \addbibresource{~/Dropbox/appunti/bibliografia/bib.bib}
+\definecolor{sapienza}{cmyk}{.10,1.00,.61,.50}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=red,citecolor=blue]{hyperref}%
+%% OFFICIAL SAPIENZA FONT %%
+%\setmainfont[
+%	Ligatures=TeX,
+%	UprightFont=*_45_light,
+%	ItalicFont=SALFrutiger-Italic,
+%	BoldFont=*_bold,
+%	BoldItalicFont=SALFrutiger-BoldItal,
+%]{frutiger}
+%%
 \setlength{\headheight}{13.6pt}
 \fancyhf{}
 \fancyhead[R]{\textbf{\textsf{\thepage}}}
@@ -58,6 +68,10 @@
 %\newtheorem{rmk}{Osservazione}
 %\newtheorem*{nb}{N.B.}
 %% %%
+%% EQUATION COLOR %%
+%\AtBeginEnvironment{equation}{\color{sapienza}}
+%\AtBeginEnvironment{equation*}{\color{sapienza}}
+%% %%
 \DeclareMathOperator{\F}{\mathbb{F}}
 \DeclareMathOperator{\R}{\mathbb{R}}
 \DeclareMathOperator{\N}{\mathbb{N}}
@@ -66,14 +80,12 @@
 \DeclareMathOperator{\Cf}{\mathbb{C}}
 \DeclareMathOperator{\V}{\mathbb{V}}
 \DeclareMathOperator{\W}{\mathbb{W}}
-\DeclareMathOperator{\Us}{\mathcal{U}}
-\DeclareMathOperator{\Ls}{\mathcal{L}}
-\newcommand{\Ls}{\ensuremath{\mathcal{L}}}
-\newcommand{\K}{\ensuremath{\mathcal{K}}}
+\DeclareMathOperator{\UU}{\mathcal{U}}
+\DeclareMathOperator{\LL}{\mathcal{L}}
 \renewcommand{\real}{\mathfrak{Re}}
 \renewcommand{\imaginary}{\mathfrak{Im}}
 \begin{document}
 \subfile{./title/title}
-\tableofcontents
 <++>
+\tableofcontents
 \end{document}
