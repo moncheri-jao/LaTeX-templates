@@ -5,8 +5,8 @@ bookcreate() {
 		mkdir -p "$(pwd)/$name/chapters"
 		mkdir "$(pwd)/$name/images"
 		mkdir "$(pwd)/$name/resources"
-		cp "$HOME"/templates/LaTeX-templates/base/base.tex "$(pwd)"/"$name"/"$name".tex
-		cp "$HOME"/templates/LaTeX-templates/base/newchapter.tex "$(pwd)"/"$name"/chapters/newchapter.tex
+		cp "$HOME"/templates/latex/base/base.tex "$(pwd)"/"$name"/"$name".tex
+		cp "$HOME"/templates/latex/base/newchapter.tex "$(pwd)"/"$name"/chapters/newchapter.tex
 		sed -i 's/..\/<++>/..\/'"$name"'/g' "$(pwd)"/"$name"/chapters/newchapter.tex
 	else
 		echo "there exists already a book with that name"
@@ -17,19 +17,19 @@ maketitle () {
 	mkdir "$(pwd)"/"$name"/title
 	if [ -n "$lang" ]; then
 		if [ "$lang" = "en" ]; then
-			cp "$HOME"/templates/LaTeX-templates/title/en/title.tex "$(pwd)"/"$name"/title/title.tex
+			cp "$HOME"/templates/latex/title/en/title.tex "$(pwd)"/"$name"/title/title.tex
 			sed -i 's/..\/<++>/..\/'"$name"'.tex/g' "$(pwd)"/"$name"/title/title.tex
 		elif [ "$lang" = "it" ]; then
-			cp "$HOME"/templates/LaTeX-templates/title/it/title.tex "$(pwd)"/"$name"/title/title.tex
+			cp "$HOME"/templates/latex/title/it/title.tex "$(pwd)"/"$name"/title/title.tex
 			sed -i 's/..\/<++>/..\/'"$name"'.tex/g' "$(pwd)"/"$name"/title/title.tex
 		else
 			echo "the language inserted is not supported, using the english version"
-			cp "$HOME"/templates/LaTeX-templates/title/en/title.tex "$(pwd)"/"$name"/title/title.tex
+			cp "$HOME"/templates/latex/title/en/title.tex "$(pwd)"/"$name"/title/title.tex
 			sed -i 's/..\/<++>/..\/'"$name"'.tex/g' "$(pwd)"/"$name"/title/title.tex
 		fi
 	else
 		echo "language not selected, using the english version"
-		cp "$HOME"/templates/LaTeX-templates/title/en/title.tex "$(pwd)"/"$2"/title/title.tex
+		cp "$HOME"/templates/latex/title/en/title.tex "$(pwd)"/"$2"/title/title.tex
 		sed -i 's/..\/<++>/..\/'"$name"'.tex/g' "$(pwd)"/"$name"/title/title.tex
 	fi
 }
@@ -47,7 +47,7 @@ titlecolor() {
 	if [ "$opt" = 1 ]; then
 		sed -i 's/\\pagecolor{title}/\\pagecolor{sapienza}/g' "$(pwd)"/"$name"/title/title.tex
 		rm "$(pwd)"/"$name"/"$name".tex
-		cp "$HOME"/templates/LaTeX-templates/base/sapienza.tex "$(pwd)"/"$name"/"$name".tex
+		cp "$HOME"/templates/latex/base/sapienza.tex "$(pwd)"/"$name"/"$name".tex
 	fi
 }
 helpf() {
