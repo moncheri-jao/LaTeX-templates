@@ -18,36 +18,49 @@ maketitle () {
 	if [ -n "$lang" ]; then
 		if [ "$lang" = "en" ]; then
 			cp "$HOME"/templates/latex/title/en/title.tex "$(pwd)"/"$name"/title/title.tex
+			cp "$HOME"/templates/latex/title/en/frontispice.tex "$(pwd)"/"$name"/title/frontispice.tex
 			sed -i 's/..\/<++>\/../'"$name"'.tex/g' "$(pwd)"/"$name"/title/title.tex
+			sed -i 's/..\/<++>\/../'"$name"'.tex/g' "$(pwd)"/"$name"/title/frontispice.tex
 		elif [ "$lang" = "it" ]; then
 			cp "$HOME"/templates/latex/title/it/title.tex "$(pwd)"/"$name"/title/title.tex
+			cp "$HOME"/templates/latex/title/it/frontispice.tex "$(pwd)"/"$name"/title/frontispice.tex
 			sed -i 's/..\/<++>/..\/'"$name"'.tex/g' "$(pwd)"/"$name"/title/title.tex
+			sed -i 's/..\/<++>/..\/'"$name"'.tex/g' "$(pwd)"/"$name"/title/frontispice.tex
 		else
 			echo "the language inserted is not supported, using the english version"
 			cp "$HOME"/templates/latex/title/en/title.tex "$(pwd)"/"$name"/title/title.tex
+			cp "$HOME"/templates/latex/title/en/frontispice.tex "$(pwd)"/"$name"/title/frontispice.tex
 			sed -i 's/..\/<++>/..\/'"$name"'.tex/g' "$(pwd)"/"$name"/title/title.tex
+			sed -i 's/..\/<++>/..\/'"$name"'.tex/g' "$(pwd)"/"$name"/title/frontispice.tex
 		fi
 	else
 		echo "language not selected, using the english version"
 		cp "$HOME"/templates/latex/title/en/title.tex "$(pwd)"/"$2"/title/title.tex
+		cp "$HOME"/templates/latex/title/en/frontispice.tex "$(pwd)"/"$name"/title/frontispice.tex
 		sed -i 's/..\/<++>/..\/'"$name"'.tex/g' "$(pwd)"/"$name"/title/title.tex
+		sed -i 's/..\/<++>/..\/'"$name"'.tex/g' "$(pwd)"/"$name"/title/frontispice.tex
 	fi
 }
 titlecomplete () {
 	sed -i "s/\\Huge\ /\\Huge\ $name/g" "$(pwd)"/"$name"/title/title.tex
+	sed -i "s/\\Huge\ /\\Huge\ $name/g" "$(pwd)"/"$name"/title/frontispice.tex
 	if [ "$lang" = "it" ]; then
 		sed -i "s/Appunti\ di/Appunti di\ $name/g" "$(pwd)"/"$name"/title/title.tex
 		sed -i "s/Versione\ /Versione\ $ver/g" "$(pwd)"/"$name"/title/title.tex
+		sed -i "s/Appunti\ di/Appunti di\ $name/g" "$(pwd)"/"$name"/title/frontispice.tex
+		sed -i "s/Versione\ /Versione\ $ver/g" "$(pwd)"/"$name"/title/frontispice.tex
 	else
 		sed -i "s/Notes\ on/Notes on\ $name/g" "$(pwd)"/"$name"/title/title.tex
 		sed -i "s/Version\ /Version\ $ver/g" "$(pwd)"/"$name"/title/title.tex
+		sed -i "s/Notes\ on/Notes on\ $name/g" "$(pwd)"/"$name"/title/frontispice.tex
+		sed -i "s/Version\ /Version\ $ver/g" "$(pwd)"/"$name"/title/frontispice.tex
 	fi
 }
 titlecolor() {
 	if [ "$opt" = 1 ]; then
-		sed -i 's/\\pagecolor{title}/\\pagecolor{sapienza}/g' "$(pwd)"/"$name"/title/title.tex
-		rm "$(pwd)"/"$name"/"$name".tex
-		cp "$HOME"/templates/latex/base/sapienza.tex "$(pwd)"/"$name"/"$name".tex
+		sed -i 's/\%\\usepackage{sapienza}/\\usepackage{sapienza}/g' "$(pwd)"/"$name"/"$name".tex
+		#rm "$(pwd)"/"$name"/"$name".tex
+		#cp "$HOME"/templates/latex/base/sapienza.tex "$(pwd)"/"$name"/"$name".tex
 	fi
 }
 helpf() {
