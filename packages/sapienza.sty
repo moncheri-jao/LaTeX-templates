@@ -1,0 +1,12 @@
+\RequirePackage{xcolor}
+\definecolor{sapienza}{cmyk}{.10,1.00,.61,.50}
+\setmainfont[
+	Ligatures=TeX,
+	UprightFont=Palatino,
+	%ItalicFont=SALFrutiger-Italic,
+	BoldFont=Frutiger_bold,
+	%BoldItalicFont=SALFrutiger-BoldItalic,
+]{palatino}
+\AtBeginEnvironment{equation}{\color{sapienza}}
+\AtBeginEnvironment{equation*}{\color{sapienza}}
+\renewcommand{\emph}[1]{<<{\color{sapienza} #1}>>}

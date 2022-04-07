@@ -14,11 +14,11 @@ bookcreate() {
 	fi
 }
 maketitle () {
-	mkdir "$(pwd)"/"$name"/title
+	mkdir $(pwd)/$name/title
 	if [ -n "$lang" ]; then
 		if [ "$lang" = "en" ]; then
 			cp "$HOME"/templates/latex/title/en/title.tex "$(pwd)"/"$name"/title/title.tex
-			sed -i 's/..\/<++>/..\/'"$name"'.tex/g' "$(pwd)"/"$name"/title/title.tex
+			sed -i 's/..\/<++>\/../'"$name"'.tex/g' "$(pwd)"/"$name"/title/title.tex
 		elif [ "$lang" = "it" ]; then
 			cp "$HOME"/templates/latex/title/it/title.tex "$(pwd)"/"$name"/title/title.tex
 			sed -i 's/..\/<++>/..\/'"$name"'.tex/g' "$(pwd)"/"$name"/title/title.tex
@@ -34,13 +34,13 @@ maketitle () {
 	fi
 }
 titlecomplete () {
-	sed -i "s/\\Huge\ /\\Huge\ '$title'/g" "$(pwd)"/"$name"/title/title.tex
+	sed -i "s/\\Huge\ /\\Huge\ $name/g" "$(pwd)"/"$name"/title/title.tex
 	if [ "$lang" = "it" ]; then
-		sed -i "s/Appunti\ di/Appunti di\ '$title'/g" "$(pwd)"/"$name"/title/title.tex
-		sed -i "s/Versione\ /Versione\ '$ver'/g" "$(pwd)"/"$name"/title/title.tex
+		sed -i "s/Appunti\ di/Appunti di\ $name/g" "$(pwd)"/"$name"/title/title.tex
+		sed -i "s/Versione\ /Versione\ $ver/g" "$(pwd)"/"$name"/title/title.tex
 	else
-		sed -i "s/Notes\ on/Notes on\ '$title'/g" "$(pwd)"/"$name"/title/title.tex
-		sed -i "s/Version\ /Version\ '$ver'/g" "$(pwd)"/"$name"/title/title.tex
+		sed -i "s/Notes\ on/Notes on\ $name/g" "$(pwd)"/"$name"/title/title.tex
+		sed -i "s/Version\ /Version\ $ver/g" "$(pwd)"/"$name"/title/title.tex
 	fi
 }
 titlecolor() {
@@ -76,8 +76,6 @@ if [[ -n $1 ]]; then
 			lang=$4;;
 		--sapienza)
 			opt=1;;
-		-t)
-			title=$4;;
 		-v)
 			ver=$4;;
 		-h)
@@ -86,8 +84,6 @@ if [[ -n $1 ]]; then
 	case $4 in
 		--sapienza)
 			opt=1;;
-		-t)
-			title=$5;;
 		-v)
 			ver=$5;;
 		-h)
@@ -96,8 +92,6 @@ if [[ -n $1 ]]; then
 	case $5 in
 		--sapienza)
 			opt=1;;
-		-t)
-			title=$6;;
 		-v)
 			ver=$6;;
 		-h)
@@ -106,8 +100,6 @@ if [[ -n $1 ]]; then
 	case $6 in
 		--sapienza)
 			opt=1;;
-		-t)
-			title=$7;;
 		-v)
 			ver=$7;;
 		-h)
@@ -116,8 +108,6 @@ if [[ -n $1 ]]; then
 	case $7 in
 		--sapienza)
 			opt=1;;
-		-t)
-			title=$8;;
 		-v)
 			ver=$8;;
 		-h)
@@ -126,8 +116,6 @@ if [[ -n $1 ]]; then
 	case $8 in
 		--sapienza)
 			opt=1;;
-		-t)
-			title=$9;;
 		-v)
 			ver=$9;;
 		-h)

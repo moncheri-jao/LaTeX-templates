@@ -22,7 +22,6 @@
 %\RequirePackage{siunitx}
 \RequirePackage[style=alphabetic]{biblatex}
 \addbibresource{~/Dropbox/appunti/bibliografia/bib.bib}
-\definecolor{sapienza}{cmyk}{.10,1.00,.61,.50}
 \RequirePackage[colorlinks=true,linkcolor=black,urlcolor=red,citecolor=blue]{hyperref}%
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -36,6 +35,7 @@
 \titleformat{\section}[block]{}{\fontsize{14}{12}\textsf{\S\ \bfseries\thesection}}{0.5em}{\fontsize{14}{12}\bfseries\textsf}[\vspace{-1ex}\hfill\rule{\textwidth}{0.1pt}]
 \titleformat{\subsection}[block]{}{\textsf{\S\S\ \bfseries\thesubsection}}{0.5em}{\bfseries\textsf}
 \titleformat{\subsubsection}[block]{}{\textsf{\S\S\S\ \bfseries\thesubsubsection}}{0.5em}{\bfseries\textsf}
+\definecolor{title}{cmyk}{1,.60,0,.40}
 % EN %
 %%
 \newtheorem{thm}{Theorem}[chapter]
@@ -51,10 +51,6 @@
 \theoremstyle{remark}
 \newtheorem{eg}{Example}[section]
 \newtheorem*{rmk}{Remark}
-%%
-%% EQUATION COLOR %%
-\AtBeginEnvironment{equation}{\color{sapienza}}
-\AtBeginEnvironment{equation*}{\color{sapienza}}
 %%
 \DeclareMathOperator{\F}{\mathbb{F}}
 \DeclareMathOperator{\R}{\mathbb{R}}
@@ -73,6 +69,6 @@
 \renewcommand{\imaginary}{\mathfrak{Im}}
 \newcommand{\varvec}[1]{\underline{#1}}
 \renewcommand{\vec}[1]{\mathbf{#1}}
-\renewcommand{\dd}{\ \mathrm{d}}
 \newcommand{\ver}[1]{\hat{\mathbf{#1}}}
 \newcommand{\unit}[1]{\ \mathrm{#1}}
+\renewcommand{\emph}[1]{<<{#1}>>}
