@@ -56,7 +56,6 @@ helpf() {
 	echo "			mkbook -n NAME		Create folder and .tex file with NAME"
 	echo "				-l lang		Use specified language (it/en) supported. Uses en if not specified or not supported"
 	echo "				-v vers		Add a version value of the book"
-	echo "				-t TITLE	Title of the book"
 	echo "				-h 		Prints this help section"
 	echo "				--sapienza	Optional argument for changing the color of equations and the titlepage to the official color of Sapienza Università"
 }
